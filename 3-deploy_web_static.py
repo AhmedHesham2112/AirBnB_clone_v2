@@ -10,6 +10,18 @@ from fabric.api import *
 env.hosts = ['100.25.223.113', '52.91.183.15']
 
 
+def do_pack():
+    """ Fabric script that generates a .tgz archive """
+    local("sudo mkdir -p versions")
+    time_now = datetime.now().strftime("%Y%m%d%H%M%S")
+    filename = "versions/web_static_{}.tgz".format(time_now)
+    result = local("sudo tar -cvzf {} web_static".format(filename))
+    if result.succeeded:
+        return filename
+    else:
+        return None
+
+
 def do_deploy(archive_path):
     """ distributes an archive to your web servers """
     if os.path.exists(archive_path) is False:
@@ -30,18 +42,6 @@ def do_deploy(archive_path):
         return True
     except:
         return False
-
-
-def do_pack():
-    """ Fabric script that generates a .tgz archive """
-    local("sudo mkdir -p versions")
-    time_now = datetime.now().strftime("%Y%m%d%H%M%S")
-    filename = "versions/web_static_{}.tgz".format(time_now)
-    result = local("sudo tar -cvzf {} web_static".format(filename))
-    if result.succeeded:
-        return filename
-    else:
-        return None
 
 
 def deploy():
