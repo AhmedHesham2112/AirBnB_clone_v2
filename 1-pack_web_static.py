@@ -5,9 +5,9 @@
 
 import os.path
 from datetime import datetime
-from fabric.api import local
+from fabric.api import *
 
-
+@runs_once
 def do_pack():
     """ Fabric script that generates a .tgz archive """
     local("sudo mkdir -p versions")
