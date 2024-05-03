@@ -10,6 +10,7 @@ from fabric.api import *
 env.hosts = ['100.25.223.113', '52.91.183.15']
 
 
+@runs_once
 def do_pack():
     """ Fabric script that generates a .tgz archive """
     local("sudo mkdir -p versions")
@@ -48,6 +49,7 @@ def do_deploy(archive_path):
 def deploy():
     """creates and distributes an archive to your web servers"""
     file_name = do_pack()
-    if os.path.exists(file_name) is False:
+    if file_name:
+        return do_deploy(file_name)
+    else:
         return False
-    return do_deploy(file_name)
