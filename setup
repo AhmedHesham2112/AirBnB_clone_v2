@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+sudo apt install python3.7
+sudo apt install python3.7-venv
+python3.7 -m venv env37
+source env37/bin/activate
+pip3 install pyparsing
+pip3 install appdirs
+pip3 install setuptools==40.1.0
+pip3 install cryptography==2.8
+pip3 install bcrypt==3.1.7
+pip3 install PyNaCl==1.3.0
+pip3 install Fabric3==1.14.post1 
