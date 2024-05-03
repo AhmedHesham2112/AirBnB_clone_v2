@@ -49,5 +49,4 @@ def deploy():
     file_name = do_pack()
     if os.path.exists(file_name) is False:
         return False
-    result = do_deploy(file_name)
-    return result
+    return do_deploy(file_name)
