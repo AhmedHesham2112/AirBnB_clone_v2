@@ -47,7 +47,7 @@ def python_is_cool(text="is cool"):
 @app.route("/number/<int:n>", strict_slashes=False)
 def number_route(n):
     """Display 'C' followed by the value of the text variable"""
-    return "{}".format(n)
+    return "{} is a number".format(n)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000")
