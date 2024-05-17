@@ -17,7 +17,7 @@ class State(BaseModel, Base):
     if os.getenv('HBNB_TYPE_STORAGE') != "db":
         @property
         def cities(self):
-            """ cities getter attribute """
+            """cities getter attribute"""
             cit_lis = []
             all_cit = models.storage.all(City)
             for city in all_cit.values():
