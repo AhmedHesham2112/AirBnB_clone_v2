@@ -7,8 +7,10 @@ Routes:
     /hbnb: display “HBNB”
     /c/<text>: display “C ” followed by the value of the text variable
     /python/<text>: display “Python ”, followed by the value of the text
-    variable, The default value of text is “is cool”.
+        variable, The default value of text is “is cool”.
     /number/<n>: display “n is a number” only if n is an integer
+    /number_template/<n>: display a HTML page only if n is an integer:
+        H1 tag: “Number: n” inside the tag BODY
 you must use the option strict_slashes=False in your route definition
 """
 from flask import Flask, render_template
