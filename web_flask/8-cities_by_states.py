@@ -41,9 +41,6 @@ LI tag: description of one City: <city.id>: <B><city.name></B>"""
     return render_template("8-cities_by_states.html", states=states)
 
 
-
-
-
 @app.teardown_appcontext
 def teardown(exc):
     """Remove the current SQLAlchemy session."""
